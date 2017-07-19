@@ -1,4 +1,5 @@
 var net = require('net')
+var parseAddress = require('./parseAddress')
 
 function forward(addrFrom, addrTo) {
 
@@ -19,20 +20,3 @@ function forward(addrFrom, addrTo) {
 }
 
 module.exports = forward
-
-function parseAddress(str) {
-    if (typeof str === typeof {}) {
-        return {
-            host: str.host,
-            port: +str.port
-        }
-    }
-    var addrRegex = /^(([a-zA-Z\-\.0-9]+):)?(\d+)$/
-
-    var addr = {
-        host: addrRegex.exec(str)[2],
-        port: +addrRegex.exec(str)[3]
-    }
-
-    return addr
-}
